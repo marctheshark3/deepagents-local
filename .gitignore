@@ -1,0 +1,8 @@
+.venv/
+__pycache__/
+*.pyc
+.env
+.env.local
+.deepagents/
+.DS_Store
+*.log
