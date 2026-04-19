@@ -3,15 +3,16 @@
 # This repo keeps a tracked copy; symlink or copy into ~/.deepagents/ to activate.
 
 [models]
-default = "ollama:qwen2.5:7b"
+default = "ollama:nemotron-cascade-2:30b"
 
 [models.providers.ollama]
 models = [
-  "qwen2.5:7b",
-  "qwen2.5:3b",
   "nemotron-cascade-2:30b",
+  "nemotron-3-super:latest",
   "nemotron-3-nano-32k:latest",
   "nemotron-3-nano:30b",
+  "qwen2.5:7b",
+  "qwen2.5:3b",
   "gemma4:31b",
 ]
 base_url = "http://localhost:11434"
@@ -25,6 +26,9 @@ num_ctx = 8192
 num_ctx = 32768
 
 [models.providers.ollama.params."nemotron-cascade-2:30b"]
+num_ctx = 32768
+
+[models.providers.ollama.params."nemotron-3-super:latest"]
 num_ctx = 32768
 
 [models.providers.ollama.params."nemotron-3-nano-32k:latest"]
@@ -44,3 +48,18 @@ max_output_tokens = 8192
 tool_calling = true
 max_input_tokens = 32768
 max_output_tokens = 8192
+
+[models.providers.ollama.profile."nemotron-3-super:latest"]
+tool_calling = true
+max_input_tokens = 32768
+max_output_tokens = 8192
+
+[models.providers.ollama.profile."nemotron-3-nano-32k:latest"]
+tool_calling = true
+max_input_tokens = 32768
+max_output_tokens = 8192
+
+[models.providers.ollama.profile."nemotron-3-nano:30b"]
+tool_calling = true
+max_input_tokens = 8192
+max_output_tokens = 4096
